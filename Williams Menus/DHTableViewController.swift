@@ -8,21 +8,49 @@
 
 import UIKit
 
-class PareskyTableViewController: UITableViewController {
+class DHTableViewController: UITableViewController {
 
+    
+    let mealSort = ["BREAKFAST": 0, "BRUNCH":0, "LUNCH": 1, "DINNER": 2]
+    
+    var meals: [String]?
+    var items: [[String]] = Array()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
+        
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func loadData() {
+        let title = self.navigationController?.tabBarItem.title!
+        (UIApplication.sharedApplication().delegate as AppDelegate).dataSource?.getMenu(title!, controller: self)
+        
+    }
+    
+    func getData(data: NSDictionary) {
+        items = Array()
+        meals = (data.allKeys as [String])
+        
+        meals!.sort { (first, second) -> Bool in
+            return self.mealSort[first] < self.mealSort[second]
+        }
+        
+        for meal in meals! {
+            var iArray = Array<String>()
+            let subMenu = data[meal] as NSDictionary
+            for subKey in subMenu.allKeys {
+                var array = subMenu[subKey as String] as Array<String>
+                for item in array {
+                    iArray.append(item)
+                }
+            }
+            items.append(iArray)
+        }
+        
+        self.tableView.reloadData()
+        
     }
 
     // MARK: - Table view data source
@@ -30,24 +58,33 @@ class PareskyTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        if meals != nil {
+            return meals!.count
+        } else {
+            return 0
+        }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return meals![section].capitalizedString
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return items[section].count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
+        cell.textLabel?.text = items[indexPath.section][indexPath.row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

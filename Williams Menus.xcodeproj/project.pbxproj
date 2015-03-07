@@ -12,7 +12,9 @@
 		03A0EDCE1AA9F13300B3B808 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03A0EDCD1AA9F13300B3B808 /* Images.xcassets */; };
 		03A0EDD11AA9F13300B3B808 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A0EDCF1AA9F13300B3B808 /* LaunchScreen.xib */; };
 		03A0EDDD1AA9F13300B3B808 /* Williams_MenusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0EDDC1AA9F13300B3B808 /* Williams_MenusTests.swift */; };
-		03A0EDED1AA9F5E300B3B808 /* PareskyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0EDEC1AA9F5E300B3B808 /* PareskyTableViewController.swift */; };
+		03A0EDED1AA9F5E300B3B808 /* DHTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0EDEC1AA9F5E300B3B808 /* DHTableViewController.swift */; };
+		03A0EDF11AAA283100B3B808 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0EDF01AAA283100B3B808 /* DataSource.swift */; };
+		03A0EDF31AAA8B8C00B3B808 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A0EDF21AAA8B8C00B3B808 /* TabController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,9 @@
 		03A0EDD61AA9F13300B3B808 /* Williams MenusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Williams MenusTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03A0EDDB1AA9F13300B3B808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03A0EDDC1AA9F13300B3B808 /* Williams_MenusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Williams_MenusTests.swift; sourceTree = "<group>"; };
-		03A0EDEC1AA9F5E300B3B808 /* PareskyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PareskyTableViewController.swift; sourceTree = "<group>"; };
+		03A0EDEC1AA9F5E300B3B808 /* DHTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHTableViewController.swift; sourceTree = "<group>"; };
+		03A0EDF01AAA283100B3B808 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		03A0EDF21AAA8B8C00B3B808 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				03A0EDC41AA9F13300B3B808 /* AppDelegate.swift */,
-				03A0EDEC1AA9F5E300B3B808 /* PareskyTableViewController.swift */,
+				03A0EDEC1AA9F5E300B3B808 /* DHTableViewController.swift */,
+				03A0EDF01AAA283100B3B808 /* DataSource.swift */,
+				03A0EDF21AAA8B8C00B3B808 /* TabController.swift */,
 				03A0EDCA1AA9F13300B3B808 /* Main.storyboard */,
 				03A0EDCD1AA9F13300B3B808 /* Images.xcassets */,
 				03A0EDCF1AA9F13300B3B808 /* LaunchScreen.xib */,
@@ -212,8 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03A0EDED1AA9F5E300B3B808 /* PareskyTableViewController.swift in Sources */,
+				03A0EDF11AAA283100B3B808 /* DataSource.swift in Sources */,
+				03A0EDED1AA9F5E300B3B808 /* DHTableViewController.swift in Sources */,
 				03A0EDC51AA9F13300B3B808 /* AppDelegate.swift in Sources */,
+				03A0EDF31AAA8B8C00B3B808 /* TabController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +415,7 @@
 				03A0EDE21AA9F13300B3B808 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03A0EDE31AA9F13300B3B808 /* Build configuration list for PBXNativeTarget "Williams MenusTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +424,7 @@
 				03A0EDE51AA9F13300B3B808 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
