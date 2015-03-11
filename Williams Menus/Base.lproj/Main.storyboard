@@ -27,6 +27,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Paresky" id="3R3-A0-Tre"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="9X5-Lf-UFz">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle"/>
+                        <connections>
+                            <action selector="refresh:" destination="DP4-x8-dWJ" eventType="valueChanged" id="LvI-8i-3Pf"/>
+                        </connections>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="refreshC" destination="9X5-Lf-UFz" id="F5R-kf-wV9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Dq-eU-PNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -54,6 +64,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Mission" id="HfA-wA-M9P"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ZoB-ZL-wwY">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="YnD-Ij-TVt" eventType="valueChanged" id="k30-Gn-IBC"/>
+                        </connections>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="refreshC" destination="ZoB-ZL-wwY" id="DsN-gd-8fb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jp9-oc-xiu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,6 +100,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Driscoll" id="4RV-OD-v2K"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="cuJ-fP-EXN">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh:" destination="ukQ-is-lj9" eventType="valueChanged" id="gKE-g8-fbF"/>
+                        </connections>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="refreshC" destination="cuJ-fP-EXN" id="3uV-Hj-qjM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kza-fY-yDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,7 +146,7 @@ CQk
         <scene sceneID="pNp-z9-Wvz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F5T-DW-2Uc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Paresky" image="first" id="DMu-6n-huf"/>
+                    <tabBarItem key="tabBarItem" title="Paresky" image="Taco" id="DMu-6n-huf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OuK-Sw-ceD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -138,7 +166,7 @@ CQk
         <scene sceneID="Ngg-Sb-SGV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TNG-1m-Fw0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Driscoll" image="second" id="uOT-bU-uMB"/>
+                    <tabBarItem key="tabBarItem" title="Driscoll" image="Carrot" id="uOT-bU-uMB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="B9w-LF-3YO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -158,7 +186,7 @@ CQk
         <scene sceneID="G68-54-bzB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bcy-NI-9N0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Mission" image="first" id="9GB-BS-QKS"/>
+                    <tabBarItem key="tabBarItem" title="Mission" image="Pizza" id="9GB-BS-QKS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dVR-mi-b43">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -176,7 +204,8 @@ CQk
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Carrot" width="25" height="25"/>
+        <image name="Pizza" width="25" height="25"/>
+        <image name="Taco" width="25" height="25"/>
     </resources>
 </document>

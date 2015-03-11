@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        println("Load dataSource launch")
         dataSource = DataSource()
         return true
     }
@@ -34,12 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        println("Load dataSource foreground")
-        dataSource = DataSource()
-        for controller in ((window?.rootViewController as TabController).viewControllers as [UIViewController]) {
-            (controller.childViewControllers[0] as DHTableViewController).loadData()
-
-        }
+        loadData()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -50,6 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func loadData() {
+        dataSource = DataSource()
+        for controller in ((window?.rootViewController as TabController).viewControllers as [UIViewController]) {
+            (controller.childViewControllers[0] as DHTableViewController).loadData()
+            
+        }
     }
 
 

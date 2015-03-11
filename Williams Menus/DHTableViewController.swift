@@ -10,8 +10,15 @@ import UIKit
 
 class DHTableViewController: UITableViewController {
 
+    @IBOutlet weak var refreshC: UIRefreshControl!
     
-    let mealSort = ["BREAKFAST": 0, "BRUNCH":0, "LUNCH": 1, "DINNER": 2]
+    @IBAction func refresh(sender: UIRefreshControl) {
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "Refresh Date")
+        (UIApplication.sharedApplication().delegate as AppDelegate).loadData()
+        
+    }
+    
+    let mealSort = ["BREAKFAST ": 0, "BRUNCH ":0, "LUNCH ": 1, "DINNER": 2, "WILLIAMS' BAKESHOP": 3]
     
     var meals: [String]?
     var items: [[String]] = Array()
@@ -24,6 +31,10 @@ class DHTableViewController: UITableViewController {
     }
     
     func loadData() {
+        if (refreshC != nil) {
+            self.refreshC.beginRefreshing()
+        }
+        
         let title = self.navigationController?.tabBarItem.title!
         (UIApplication.sharedApplication().delegate as AppDelegate).dataSource?.getMenu(title!, controller: self)
         
@@ -50,6 +61,10 @@ class DHTableViewController: UITableViewController {
         }
         
         self.tableView.reloadData()
+        
+        if (refreshC != nil) {
+            refreshC.endRefreshing()
+        }
         
     }
 

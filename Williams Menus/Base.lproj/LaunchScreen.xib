@@ -6,19 +6,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lH-mn-ASm">
-                    <rect key="frame" x="0.0" y="8" width="480" height="44"/>
-                    <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                </navigationBar>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <nil key="simulatedStatusBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="548" y="455"/>
-        </view>
+        <navigationController id="qNf-k4-NCr">
+            <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Qy-jL-FjA">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </navigationBar>
+            <viewControllers>
+                <viewController id="XG1-dt-EEh">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p1e-rt-CEv"/>
+                        <viewControllerLayoutGuide type="bottom" id="GeM-kH-rNN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cWd-xW-WSF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ke2-rR-Q0q"/>
+                </viewController>
+            </viewControllers>
+            <point key="canvasLocation" x="566" y="456"/>
+        </navigationController>
     </objects>
 </document>
