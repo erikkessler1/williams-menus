@@ -13,6 +13,8 @@ class DataSource{
     var resk: NSDictionary?
     var mish: NSDictionary?
     
+    var state = 0
+    
     var contDict: [String: DHTableViewController] = Dictionary()
     
     init() {
@@ -27,6 +29,7 @@ class DataSource{
                 dris = defaults.valueForKey("Dris Menu") as? NSDictionary
                 resk = defaults.valueForKey("Resk Menu") as? NSDictionary
                 mish = defaults.valueForKey("Mish Menu") as? NSDictionary
+                state = 1
                 return
             }
             
@@ -57,6 +60,8 @@ class DataSource{
                 
                 defaults.setObject(NSDate.timeIntervalSinceReferenceDate(), forKey: "Refresh Date")
                 
+                self.state = 1
+                
                 if (self.contDict.count != 0) {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         for (hall, controller) in self.contDict {
@@ -66,10 +71,22 @@ class DataSource{
                     })
                     
                 }
+            
                 
             } else {
                 
                 // Display the error - server error
+                println(error)
+                self.state = 2
+                if (self.contDict.count != 0) {
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        for (hall, controller) in self.contDict {
+                            controller.connectionError()
+                        }
+                        self.contDict.removeAll(keepCapacity: true)
+                    })
+                }
+
                 
             }
         })
@@ -79,7 +96,9 @@ class DataSource{
     }
     
     func getMenu(index: String, controller: DHTableViewController) {
-        if (mish == nil) {
+        if (state == 2){
+          controller.connectionError()
+        } else if (mish == nil) {
             self.contDict[index] = controller
             return
         } else {

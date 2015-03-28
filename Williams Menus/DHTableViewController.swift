@@ -40,6 +40,13 @@ class DHTableViewController: UITableViewController {
         
     }
     
+    func connectionError() {
+        if (refreshC != nil) {
+            refreshC.endRefreshing()
+        }
+        
+    }
+    
     func getData(data: NSDictionary) {
         items = Array()
         meals = (data.allKeys as [String])
@@ -95,9 +102,32 @@ class DHTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
-        cell.textLabel?.text = items[indexPath.section][indexPath.row]
+        var item = items[indexPath.section][indexPath.row]
+        let removeGF = true
+        if (removeGF) {
+            item = item.stringByReplacingOccurrencesOfString("GF", withString: "", options: nil, range: nil)
+        }
+        cell.textLabel?.text = item
 
         return cell
+    }
+    
+    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+        if meals != nil {
+            var index: [String] = []
+            for meal in meals! {
+                index.append(meal.substringToIndex(advance(meal.startIndex, 1)))
+                index.append(" ")
+                index.append(" ")
+            }
+        return index
+        } else {
+            return nil
+        }
+    }
+    
+    override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+        return index/3
     }
     
 
